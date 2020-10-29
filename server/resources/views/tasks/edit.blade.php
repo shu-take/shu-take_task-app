@@ -10,16 +10,20 @@
         </ul>
     </div>
 @endif
+
 <h1>タスク編集</h1>
 <form action="/tasks/{{ $task->id }}" method="post">
     @csrf
     @method('PUT')
     <input type="hidden" name="id" value="{{ $task->id }}">
-    <p>
-        【タスク名】<input type="text" name="title" value="{{ $task->title}}">
-    </p>
-    <p>
-        【タスク内容】<input type="text" name="body" value="{{ $task->body }}">
-    </p>
-    <input type="submit" value="edit">
+    <dl>
+        <dt><label for="title">タスク名</label></dt>
+        <dt><input type="text" name="title" value="{{ $task->title}}"></dt>
+        <dt><label for="body">タスク内容</label></dt>
+        <dt><textarea name="body" id="" cols="30" rows="1">{{ $task->body }}</textarea></dt>
+    </dl>
+    <input type="submit" value="update">
 </form>
+<hr>
+<a href="/tasks"><button>index task</button></a>
+<a href="/tasks/{{ $task->id }}"><button>show task</button></a>

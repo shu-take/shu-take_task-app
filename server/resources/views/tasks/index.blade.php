@@ -10,33 +10,28 @@
         </ul>
     </div>
 @endif
+
 <h1>タスク一覧</h1>
-<hr>
 <ul type="none">
     @foreach ($tasks as $task)
-        <table>
-            <td>
-                <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a>
-            </td>
-            <td>
-                <form action="/tasks/{{ $task->id }}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" value="delete" onclick="if(!confirm('削除しますか？')){return false};">
-                </form>
-            </td>
-        </table>
+        <form action="/tasks/{{ $task->id }}" method="post">
+            @csrf
+            @method('DELETE')
+            <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a>
+            <input type="submit" value="delete" onclick="if(!confirm('削除しますか？')){return false};">
+        </form>
     @endforeach
 </ul>
 <hr>
+
 <h1>タスク追加</h1>
 <form action="/tasks" method="post">
     @csrf
-    <p>
-        【タスク名】<input type="text" name="title" value="{{ old('title') }}">
-    </p>
-    <p>
-        【タスク内容】<input type="text" name="body" value="{{ old('body') }}">
-    </p>
-    <input type="submit" value="create task">
+    <dl>
+        <dt><label for="title">タスク名</label></dt>
+        <dt><input type="text" name="title" value="{{ old('title') }}"></dt>
+        <dt><label for="body">タスク内容</label></dt>
+        <dt><textarea name="body" id="" cols="30" rows="1">{{ old('body') }}</textarea></dt>
+    </dl>
+    <input type="submit" value="create">
 </form>
