@@ -18,9 +18,9 @@
     <input type="hidden" name="id" value="{{ $task->id }}">
     <dl>
         <dt><label for="title">タスク名</label></dt>
-        <dt><input type="text" name="title" value="{{ $task->title}}"></dt>
+        <dd><input type="text" name="title" value="{{ $task->title}}"></dd>
         <dt><label for="body">タスク内容</label></dt>
-        <dt><textarea name="body" id="" cols="30" rows="1">{{ $task->body }}</textarea></dt>
+        <dd><textarea name="body" id="" cols="30" rows="1">{{ $task->body }}</textarea></dd>
     </dl>
     <input type="submit" value="update">
 </form>

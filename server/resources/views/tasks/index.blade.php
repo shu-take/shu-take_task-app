@@ -29,9 +29,9 @@
     @csrf
     <dl>
         <dt><label for="title">タスク名</label></dt>
-        <dt><input type="text" name="title" value="{{ old('title') }}"></dt>
+        <dd><input type="text" name="title" value="{{ old('title') }}"></dd>
         <dt><label for="body">タスク内容</label></dt>
-        <dt><textarea name="body" id="" cols="30" rows="1">{{ old('body') }}</textarea></dt>
+        <dd><textarea name="body" id="" cols="30" rows="1">{{ old('body') }}</textarea></dd>
     </dl>
     <input type="submit" value="create">
 </form>
